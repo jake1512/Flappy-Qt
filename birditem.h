@@ -12,22 +12,16 @@ class BirdItem : public QObject, public QGraphicsPixmapItem
     Q_PROPERTY(qreal y READ y WRITE setY)
 public:
     explicit BirdItem(QPixmap pixmap);
-
     qreal rotation() const;
-
     qreal y() const;
-
     void shootUp();
-
-
+    void startFlying();
+    void freezeInPlace();
 
 public slots:
     void setRotation(qreal rotation);
-
     void setY(qreal y);
-
     void rotateTo(const qreal &end, const int& duration, const QEasingCurve& curve);
-
     void fallToGround();
 signals:
 private:

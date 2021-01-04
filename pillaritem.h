@@ -15,18 +15,27 @@ public:
 
     qreal x() const;
 
+    void scorebat();
+
+    void freezeInPlace();
+
 public slots:
     void setX(qreal x);
 
 signals:
+    void collideFail();
 
 private:
+
+    bool collideWithBird();
+
     QGraphicsPixmapItem * topPillar;
     QGraphicsPixmapItem * bottomPillar;
     QPropertyAnimation * xAnimation;
     int yPos;
 
     qreal m_x;
+    bool pastBird;
 };
 
 #endif // PILLARITEM_H
