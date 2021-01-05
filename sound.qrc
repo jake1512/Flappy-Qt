@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/soundA">
+        <file>point.wav</file>
+        <file>E:/Install/Flappy-Bird-Qt-master/assets/sound/hit.wav</file>
+        <file>E:/Install/Flappy-Bird-Qt-master/assets/sound/wing.wav</file>
+    </qresource>
+    <qresource prefix="/soundUse"/>
+</RCC>

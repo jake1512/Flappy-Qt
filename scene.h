@@ -5,6 +5,8 @@
 #include <QTimer>
 #include "pillaritem.h"
 #include "birditem.h"
+#include <QMediaPlayer>
+
 class Scene : public QGraphicsScene
 {
     Q_OBJECT
@@ -30,7 +32,7 @@ protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 private:
     void showGameOverGraphics();
-    void hideGameOverGraphics();
+    void highGameOverGraphics();
     void cleanPillars();
     void setUpPillarTime();
     void freeBirdAndPillarsInPlace();
@@ -47,7 +49,12 @@ private:
     QGraphicsItem * gameOverPix;
     QGraphicsTextItem * scoreTextItem;
     QGraphicsTextItem * scorePresentPlay;
+    QGraphicsTextItem * scorePresentPlay2;
 
+
+    QMediaPlayer * wing;
+    QMediaPlayer * scoreAdd;
+    QMediaPlayer * dieOff;
 
 
 };

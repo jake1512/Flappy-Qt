@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/sound3in">
+        <file>point.wav</file>
+        <file>hit.wav</file>
+        <file>wing.wav</file>
+    </qresource>
+</RCC>

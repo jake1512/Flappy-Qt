@@ -5,6 +5,7 @@
 #include <QDebug>
 #include "mainwindow.h"
 #include "ground.h"
+#include <QMediaPlayer>
 
 Scene::Scene(QObject *parent) : QGraphicsScene(parent),
     gameOn(false),
@@ -29,7 +30,7 @@ void Scene::startGame()
     if(!pillarTimer->isActive()){
         cleanPillars();
         setGameOn(true);
-        hideGameOverGraphics();
+        highGameOverGraphics();
         score = 0;
         pillarTimer->start(2000);
         //        groundTimer->start(1000);
@@ -59,6 +60,10 @@ void Scene::setUpPillarTime()
 
 void Scene::freeBirdAndPillarsInPlace()
 {
+
+    dieOff = new QMediaPlayer();
+    dieOff->setMedia(QUrl("qrc:/sound3in/hit.wav"));
+    dieOff->play();
     bird->freezeInPlace();
 
     QList<QGraphicsItem *> sceneItems = items();
@@ -84,6 +89,10 @@ void Scene::setGameOn(bool value)
 void Scene::incrementScore()
 {
     score++;
+    scoreAdd = new QMediaPlayer();
+    scoreAdd->setMedia(QUrl("qrc:/sound3in/point.wav"));
+    scoreAdd->play();
+    delete  scorePresentPlay;
     updateScore();
     if(score > bestScore)
         bestScore = score;
@@ -94,16 +103,22 @@ void Scene::updateScore()
 {
     scorePresentPlay = new QGraphicsTextItem();
 
+
     QFont mFont1("Consolas", 55, QFont::Bold);
 
     QString  htmlString1 =  QString::number(score);
+
+
 
     scorePresentPlay->setHtml(htmlString1);
     scorePresentPlay->setFont(mFont1);
     scorePresentPlay->setDefaultTextColor(Qt::yellow);
     scorePresentPlay->setPos(QPointF(0, 0) - QPointF(scorePresentPlay->boundingRect().width()/2,
                                                      250));
+
     addItem(scorePresentPlay);
+
+
 }
 
 void Scene::keyPressEvent(QKeyEvent *event)
@@ -121,6 +136,9 @@ void Scene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     if(event->button() == Qt::LeftButton){
         if(gameOn){
             bird->shootUp();
+            wing = new QMediaPlayer();
+            wing->setMedia(QUrl("qrc:/sound3in/wing.wav"));
+            wing->play();
         }         
     }
     if(event->button() == Qt::RightButton){
@@ -155,21 +173,21 @@ void Scene::showGameOverGraphics()
 
 }
 
-void Scene::hideGameOverGraphics()
+void Scene::highGameOverGraphics()
 {
     if(gameOverPix){
-            // removeItem(gameOverPix);
-            delete gameOverPix;
-            gameOverPix = nullptr;
+//        removeItem(gameOverPix);
+        delete  gameOverPix;
+        gameOverPix= nullptr;
     }
     if(scoreTextItem){
 //        removeItem(scoreTextItem);
-        delete scoreTextItem;
+        delete  scoreTextItem;
         scoreTextItem = nullptr;
     }
     if(scorePresentPlay){
 //        removeItem(scorePresentPlay);
-        delete scorePresentPlay;
+        delete  scorePresentPlay;
         scorePresentPlay = nullptr;
     }
 }
