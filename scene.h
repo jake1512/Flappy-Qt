@@ -26,7 +26,6 @@ signals:
 public slots:
 
 protected:
-    void keyPressEvent(QKeyEvent *event);
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 private:
     void showGameOverGraphics();

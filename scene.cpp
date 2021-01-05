@@ -84,6 +84,7 @@ void Scene::setGameOn(bool value)
 void Scene::incrementScore()
 {
     score++;
+    delete scorePresentPlay;
     updateScore();
     if(score > bestScore)
         bestScore = score;
@@ -106,27 +107,12 @@ void Scene::updateScore()
     addItem(scorePresentPlay);
 }
 
-void Scene::keyPressEvent(QKeyEvent *event)
-{
-    if(event->key() == Qt::Key_Space){
-        if(gameOn){
-            bird->shootUp();
-        }
-    }
-    QGraphicsScene::keyPressEvent(event);
-}
-
 void Scene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if(event->button() == Qt::LeftButton){
         if(gameOn){
             bird->shootUp();
         }         
-    }
-    if(event->button() == Qt::RightButton){
-        if(gameOn){
-            delete scorePresentPlay;
-        }
     }
     QGraphicsScene::mousePressEvent(event);
 
@@ -158,9 +144,9 @@ void Scene::showGameOverGraphics()
 void Scene::hideGameOverGraphics()
 {
     if(gameOverPix){
-            // removeItem(gameOverPix);
-            delete gameOverPix;
-            gameOverPix = nullptr;
+        // removeItem(gameOverPix);
+        delete gameOverPix;
+        gameOverPix = nullptr;
     }
     if(scoreTextItem){
 //        removeItem(scoreTextItem);

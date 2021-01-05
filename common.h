@@ -3,6 +3,9 @@
 
 #include <QApplication>
 
+#define TRUE 1
+#define FALSE 0
+
 #define PREFIX_IMG ":/images/"
 #define PREFIX_SND ":/sounds/"
 

@@ -32,14 +32,6 @@ MainWindow::MainWindow(QWidget *parent)
     ground->setPos(QPointF(0, 0) -QPointF(ground->boundingRect().width()/2, -background->boundingRect().height()/4));
 
 
-//    scene->addLine(-400, 0, 400, 0, QPen(Qt::blue));
-//    scene->addLine(0, -400, 0, 400, QPen(Qt::blue));
-//    QGraphicsScene * mScene = scene;
-    //    Scene * myScene = dynamic_cast<Scene * >(mScene);
-    //    if(myScene){
-    //        myScene->updateScore();
-    //    }
-
     ui->graphicsView->setScene(scene);
 
     scene->addBird();

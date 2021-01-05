@@ -202,6 +202,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="birditem.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="pillaritem.cpp" />
@@ -211,6 +212,7 @@
     <QtMoc Include="birditem.h">
     </QtMoc>
     <ClInclude Include="common.h" />
+    <ClInclude Include="game.h" />
     <QtMoc Include="mainwindow.h">
     </QtMoc>
     <QtMoc Include="pillaritem.h">
