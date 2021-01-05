@@ -67,6 +67,9 @@
     <QtMoc Include="birditem.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <ClInclude Include="common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <QtMoc Include="mainwindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -165,5 +168,26 @@
     <QtRcc Include="resource.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+    <None Include="images\scoreBoard.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="images\scoreBoard_bronze.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="images\scoreBoard_gold.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="images\scoreBoard_platinum.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="images\scoreBoard_silver.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="images\soundDisabled.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="images\soundEnabled.png">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

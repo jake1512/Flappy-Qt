@@ -1,4 +1,5 @@
 #include "scene.h"
+#include "common.h"
 #include <QGraphicsSceneMouseEvent>
 #include <QKeyEvent>
 #include <QGraphicsTextItem>
@@ -17,7 +18,7 @@ Scene::Scene(QObject *parent) : QGraphicsScene(parent),
 
 void Scene::addBird()
 {
-    bird = new BirdItem(QPixmap(":/new/prefix1/images/bird_blue_up.png"));
+    bird = new BirdItem(QPixmap(IMG_BIRD_BLUE_UP));
     addItem(bird);
 }
 
@@ -31,8 +32,7 @@ void Scene::startGame()
         setGameOn(true);
         hideGameOverGraphics();
         score = 0;
-        pillarTimer->start(2000);
-        //        groundTimer->start(1000);
+        pillarTimer->start(1000);
     }
 }
 
@@ -56,7 +56,7 @@ void Scene::setUpPillarTime()
 
 }
 
-
+// bird crashes into pillar
 void Scene::freeBirdAndPillarsInPlace()
 {
     bird->freezeInPlace();
@@ -134,7 +134,7 @@ void Scene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void Scene::showGameOverGraphics()
 {
-    gameOverPix = new QGraphicsPixmapItem(QPixmap(":/new/prefix1/images/gameOver.png"));
+    gameOverPix = new QGraphicsPixmapItem(QPixmap(IMG_GAMEOVER));
     addItem(gameOverPix);
     gameOverPix->setPos(QPointF(0, 0) - QPointF(gameOverPix->boundingRect().width()/2,
                                                 gameOverPix->boundingRect().height()));

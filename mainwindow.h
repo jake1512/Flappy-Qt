@@ -16,7 +16,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    QGraphicsPixmapItem * pixItem;
+    QGraphicsPixmapItem * background;
     QGraphicsPixmapItem * logo;
     QGraphicsPixmapItem * tap;
     QGraphicsPixmapItem * number;

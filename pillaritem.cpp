@@ -1,4 +1,5 @@
 #include "pillaritem.h"
+#include "common.h"
 #include <QRandomGenerator>
 #include <QDebug>
 #include "scene.h"
@@ -7,8 +8,8 @@
 #include <QGraphicsScene>
 
 PillarItem::PillarItem() :
-    topPillar(new QGraphicsPixmapItem(QPixmap(":/new/prefix1/images/pipe_up.png"))),
-    bottomPillar(new QGraphicsPixmapItem(QPixmap(":/new/prefix1/images/pipe_down.png"))),
+    topPillar(new QGraphicsPixmapItem(QPixmap(IMG_PIPE_UP))),
+    bottomPillar(new QGraphicsPixmapItem(QPixmap(IMG_PIPE_DOWN))),
     pastBird(false)
 {
     bottomPillar->setPos(QPointF(0,0) - QPointF(bottomPillar->boundingRect().width()/2, topPillar->boundingRect().height() + 60));
