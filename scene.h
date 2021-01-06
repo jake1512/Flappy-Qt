@@ -14,12 +14,17 @@ public:
     void addBird();
 
     void startGame();
-    bool getGameOn() const;
-    void setGameOn(bool value);
+
     void updateScore();
     void incrementScore();
 
+    void gameOver(int score);
 
+    bool isGameStarted();
+    bool isGameFinished();
+    bool isGameActuallyStarted();
+
+    void prepareNewRound();
 
 signals:
 
@@ -29,25 +34,25 @@ protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 private:
     void showGameOverGraphics();
-    void hideGameOverGraphics();
     void cleanPillars();
     void setUpPillarTime();
     void freeBirdAndPillarsInPlace();
 
+    bool gameFinished, gameStarted;
+    bool gameActuallyStarted;
 
     QTimer * pillarTimer;
     QTimer * groundTimer;
     BirdItem * bird;
-    bool gameOn;
 
     int score, scoreBefore;
     int bestScore;
 
-    QGraphicsItem * gameOverPix;
+
     QGraphicsTextItem * scoreTextItem;
     QGraphicsTextItem * scorePresentPlay;
 
-
+    QGraphicsPixmapItem *item_pixmap_scoreBoard;
 
 };
 

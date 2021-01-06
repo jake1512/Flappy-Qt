@@ -31,7 +31,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     ground->setPos(QPointF(0, 0) -QPointF(ground->boundingRect().width()/2, -background->boundingRect().height()/4));
 
-
     ui->graphicsView->setScene(scene);
 
     scene->addBird();
