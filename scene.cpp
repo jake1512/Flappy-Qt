@@ -50,7 +50,10 @@ void Scene::startGame()
 void Scene::prepareNewRound()
 {
     delete bird;
-
+    delete scorePresentPlay;
+    score = 0;
+    gameStarted = false;
+    startGame();
 }
 
 void Scene::setUpPillarTime()
@@ -134,11 +137,20 @@ void Scene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if(event->button() == Qt::LeftButton){
         if(gameActuallyStarted){
+            if(!isGameStarted())
+            {
+                gameStarted = true;
+            }
             bird->shootUp();
         }         
     }
     QGraphicsScene::mousePressEvent(event);
 
+}
+
+void Scene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+    mousePressEvent(event);
 }
 
 void Scene::gameOver(int score)

@@ -32,6 +32,7 @@ public slots:
 
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event);
 private:
     void showGameOverGraphics();
     void cleanPillars();

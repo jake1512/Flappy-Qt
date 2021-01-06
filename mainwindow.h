@@ -25,7 +25,7 @@ public:
 
 
 private slots:
-    void on_startGame_clicked();
+    void on_startGameclicked(Scene *game_instance);
 
 private:
     Ui::MainWindow *ui;

@@ -40,14 +40,17 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-void MainWindow::on_startGame_clicked()
+void MainWindow::on_startGameclicked(Scene *game_instance)
 {
-    scene->startGame();
-    if (logo->isActive()) {
-        delete logo;
+    if(!game_instance->isGameFinished()){
+        scene->startGame();
+        if (logo->isActive()) {
+            delete logo;
+        }
+        if (tap->isActive()){
+            delete tap;
+        }
+    } else {
+        game_instance->prepareNewRound();
     }
-    if (tap->isActive()){
-        delete tap;
-    }
-
 }
