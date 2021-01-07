@@ -1,24 +1,14 @@
 <RCC>
-    <qresource prefix="/new/prefix1">
+    <qresource prefix="/">
+        <file>images/background_day.png</file>
         <file>images/bird_blue_down.png</file>
         <file>images/bird_blue_middle.png</file>
         <file>images/bird_blue_up.png</file>
-        <file>images/ground_segment.png</file>
         <file>images/pipe_down.png</file>
         <file>images/pipe_up.png</file>
         <file>images/gameOver.png</file>
-        <file>images/background_day.png</file>
-        <file>images/logo.png</file>
         <file>images/gameInfo.png</file>
-        <file>images/0.png</file>
-        <file>images/1.png</file>
-        <file>images/2.png</file>
-        <file>images/3.png</file>
-        <file>images/4.png</file>
-        <file>images/5.png</file>
-        <file>images/6.png</file>
-        <file>images/7.png</file>
-        <file>images/8.png</file>
-        <file>images/9.png</file>
+        <file>images/logo.png</file>
+        <file>images/ground_segment.png</file>
     </qresource>
 </RCC>

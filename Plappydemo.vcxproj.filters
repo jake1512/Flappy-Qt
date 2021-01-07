@@ -67,6 +67,9 @@
     <QtMoc Include="birditem.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <ClInclude Include="common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <QtMoc Include="mainwindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -102,36 +105,6 @@
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\0.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\1.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\2.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\3.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\4.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\5.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\6.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\7.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\8.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\9.png">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="images\background_day.png">
       <Filter>Resource Files</Filter>
     </None>

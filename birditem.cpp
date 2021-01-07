@@ -1,6 +1,7 @@
 #include "birditem.h"
 #include <QTimer>
 #include <QGraphicsScene>
+#include "common.h"
 
 BirdItem::BirdItem(QPixmap pixmap) :
     wingPositon(WingPositon::Up),
@@ -21,7 +22,7 @@ BirdItem::BirdItem(QPixmap pixmap) :
     yAnimation->setStartValue(scenePos().y());
     yAnimation->setEndValue(groundPosition);
     yAnimation->setEasingCurve(QEasingCurve::InQuad);
-    yAnimation->setDuration(1000);
+    yAnimation->setDuration(800);
 
 //    yAnimation->start();
 
@@ -39,7 +40,7 @@ qreal BirdItem::y() const
     return m_y;
 }
 
-void BirdItem::shootUp()
+void BirdItem::shootUP()
 {
     yAnimation->stop();
     rotationAnimation->stop();
@@ -50,10 +51,13 @@ void BirdItem::shootUp()
     yAnimation->setEndValue(curPosY - scene()->sceneRect().height()/8);
     yAnimation->setEasingCurve(QEasingCurve::OutQuad);
     yAnimation->setDuration(200);
-    connect(yAnimation, &QPropertyAnimation::finished, [=](){
-        fallToGround();
+
+    connect(yAnimation, &QPropertyAnimation::finished,[=](){
+       fallToGroundIfNecessary();
     });
+
     yAnimation->start();
+
     rotateTo(-20, 200, QEasingCurve::OutCubic);
 }
 
@@ -65,9 +69,7 @@ void BirdItem::startFlying()
 
 void BirdItem::freezeInPlace()
 {
-    yAnimation->stop();
     rotationAnimation->stop();
-
 }
 
 void BirdItem::setRotation(qreal rotation)
@@ -99,19 +101,20 @@ void BirdItem::rotateTo(const qreal &end, const int &duration, const QEasingCurv
     rotationAnimation->start();
 }
 
-void BirdItem::fallToGround()
+void BirdItem::fallToGroundIfNecessary()
 {
-    if(y() < groundPosition){
+    if(y() < groundPosition)
+    {
         rotationAnimation->stop();
-//        yAnimation -> stop();
+//        yAnimation->stop();
 
         yAnimation->setStartValue(y());
-        yAnimation->setEndValue(groundPosition);
         yAnimation->setEasingCurve(QEasingCurve::InQuad);
-        yAnimation->setDuration(1000);
+        yAnimation->setEndValue(groundPosition);
+        yAnimation->setDuration(800);
         yAnimation->start();
 
-        rotateTo(90,1100,QEasingCurve::InCubic);
+        rotateTo(90, 800, QEasingCurve::InCubic);
     }
 }
 
@@ -122,19 +125,19 @@ void BirdItem::updatePixmap()
         if(wingDirection)
         {
             //Up
-            setPixmap(QPixmap(":/new/prefix1/images/bird_blue_up.png"));
+            setPixmap(QPixmap(IMG_BIRD_BLUE_UP));
             wingPositon = WingPositon::Up;
             wingDirection = 0;
         } else
         {
             //down
-            setPixmap(QPixmap(":/new/prefix1/images/bird_blue_down.png"));
+            setPixmap(QPixmap(IMG_BIRD_BLUE_DOWN));
             wingPositon = WingPositon::Down;
             wingDirection = 1;
         }
     } else
     {
-        setPixmap(QPixmap(":/new/prefix1/images/bird_blue_middle.png"));
+        setPixmap(QPixmap(IMG_BIRD_BLUE_MIDDLE));
         wingPositon = WingPositon::Middle;
     }
 }

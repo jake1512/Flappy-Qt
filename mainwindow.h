@@ -16,21 +16,16 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    QGraphicsPixmapItem * pixItem;
     QGraphicsPixmapItem * logo;
     QGraphicsPixmapItem * tap;
-    QGraphicsPixmapItem * number;
     QGraphicsPixmapItem * ground;
-    QGraphicsTextItem * scorePresentPlay;
-
 
 private slots:
-    void on_startGame_clicked();
+    void on_startGameBotton_clicked();
 
 private:
     Ui::MainWindow *ui;
 
     Scene * scene;
-
 };
 #endif // MAINWINDOW_H

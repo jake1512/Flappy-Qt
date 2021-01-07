@@ -1,10 +1,8 @@
 #include "scene.h"
 #include <QGraphicsSceneMouseEvent>
 #include <QKeyEvent>
-#include <QGraphicsTextItem>
 #include <QDebug>
-#include "mainwindow.h"
-#include "ground.h"
+#include "common.h"
 
 Scene::Scene(QObject *parent) : QGraphicsScene(parent),
     gameOn(false),
@@ -12,12 +10,11 @@ Scene::Scene(QObject *parent) : QGraphicsScene(parent),
     bestScore(0)
 {
     setUpPillarTime();
-
 }
 
 void Scene::addBird()
 {
-    bird = new BirdItem(QPixmap(":/new/prefix1/images/bird_blue_up.png"));
+    bird = new BirdItem(QPixmap(IMG_BIRD_BLUE_UP));
     addItem(bird);
 }
 
@@ -26,13 +23,13 @@ void Scene::startGame()
     //Bird
     bird->startFlying();
     //Pillars
-    if(!pillarTimer->isActive()){
+    if(!pillarTimer->isActive())
+    {
         cleanPillars();
         setGameOn(true);
-        hideGameOverGraphics();
-        score = 0;
-        pillarTimer->start(2000);
-        //        groundTimer->start(1000);
+        setScore(0);
+        hideGameOvergraphics();
+        pillarTimer->start(1000);
     }
 }
 
@@ -42,9 +39,10 @@ void Scene::setUpPillarTime()
     connect(pillarTimer,&QTimer::timeout,[=](){
 
         PillarItem * pillarItem = new PillarItem();
-        connect(pillarItem, &PillarItem::collideFail, [=](){
+
+        connect(pillarItem, &PillarItem::collideFail,[=](){
             pillarTimer->stop();
-            freeBirdAndPillarsInPlace();
+            freezeBirdAndPillarsInPlace();
             setGameOn(false);
             showGameOverGraphics();
         });
@@ -52,24 +50,31 @@ void Scene::setUpPillarTime()
         addItem(pillarItem);
     });
 
-    //    pillarTimer->start(1000);
+//    pillarTimer->start(1000);
 
 }
 
-
-void Scene::freeBirdAndPillarsInPlace()
+void Scene::freezeBirdAndPillarsInPlace()
 {
+    //freeze Bird
     bird->freezeInPlace();
 
-    QList<QGraphicsItem *> sceneItems = items();
-    foreach (QGraphicsItem *item, sceneItems){
+    //freeze plillars
+    QList<QGraphicsItem *> sceneItem = items();
+    foreach(QGraphicsItem *item, sceneItem)
+    {
         PillarItem * pillar = dynamic_cast<PillarItem *>(item);
-        if(pillar){
+        if(pillar)
+        {
             pillar->freezeInPlace();
         }
     }
 }
 
+void Scene::setScore(int value)
+{
+    score = value;
+}
 
 bool Scene::getGameOn() const
 {
@@ -84,10 +89,13 @@ void Scene::setGameOn(bool value)
 void Scene::incrementScore()
 {
     score++;
+    delete  scorePresentPlay;
     updateScore();
     if(score > bestScore)
+    {
         bestScore = score;
-
+    }
+    qDebug() << "Score : " << score << "best Score : " << bestScore;
 }
 
 void Scene::updateScore()
@@ -100,69 +108,72 @@ void Scene::updateScore()
 
     scorePresentPlay->setHtml(htmlString1);
     scorePresentPlay->setFont(mFont1);
-    scorePresentPlay->setDefaultTextColor(Qt::yellow);
+    scorePresentPlay->setDefaultTextColor(Qt::red);
     scorePresentPlay->setPos(QPointF(0, 0) - QPointF(scorePresentPlay->boundingRect().width()/2,
                                                      250));
     addItem(scorePresentPlay);
 }
-
 void Scene::keyPressEvent(QKeyEvent *event)
 {
-    if(event->key() == Qt::Key_Space){
-        if(gameOn){
-            bird->shootUp();
+    if(event->key() == Qt::Key_Space)
+    {
+        if(gameOn)
+        {
+            bird->shootUP();
         }
+
     }
     QGraphicsScene::keyPressEvent(event);
 }
 
 void Scene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    if(event->button() == Qt::LeftButton){
-        if(gameOn){
-            bird->shootUp();
-        }         
-    }
-    if(event->button() == Qt::RightButton){
-        if(gameOn){
-            delete scorePresentPlay;
+    if(event->button() == Qt::LeftButton)
+    {
+        if(gameOn)
+        {
+            bird->shootUP();
         }
     }
     QGraphicsScene::mousePressEvent(event);
+}
 
+void Scene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+    mousePressEvent(event);
 }
 
 void Scene::showGameOverGraphics()
 {
-    gameOverPix = new QGraphicsPixmapItem(QPixmap(":/new/prefix1/images/gameOver.png"));
+    gameOverPix = new QGraphicsPixmapItem(QPixmap(IMG_GAMEOVER));
     addItem(gameOverPix);
-    gameOverPix->setPos(QPointF(0, 0) - QPointF(gameOverPix->boundingRect().width()/2,
-                                                gameOverPix->boundingRect().height()));
+    gameOverPix->setPos(QPointF(0,0) - QPointF(gameOverPix->boundingRect().width()/2,
+                                               gameOverPix->boundingRect().height()/2));
     scoreTextItem = new QGraphicsTextItem();
+    QString htmlString = "<p> Score : " + QString::number(score) + "</p>"
+            + "<p> Best Score : " + QString::number(bestScore) + "</p>";
 
-    QString htmlString = "<p> Score      : " + QString::number(score) + " </p"
-            +"<p> Best Score : " + QString::number(bestScore) + " </p>";
-
-    QFont mFont("Consolas", 25, QFont::Bold);
+    QFont mFont("Calibri", 30, QFont::Normal);
 
     scoreTextItem->setHtml(htmlString);
     scoreTextItem->setFont(mFont);
-    scoreTextItem->setDefaultTextColor(Qt::yellow);
+    scoreTextItem->setDefaultTextColor(Qt::blue);
     addItem(scoreTextItem);
 
-    scoreTextItem->setPos(QPointF(0, 0) - QPointF(scoreTextItem->boundingRect().width()/2,
-                                                  - gameOverPix->boundingRect().height()/2));
-
+    scoreTextItem->setPos(QPointF(0,0) - QPointF(scoreTextItem->boundingRect().width()/2,
+                                                 -gameOverPix->boundingRect().height()/2));
 }
 
-void Scene::hideGameOverGraphics()
+void Scene::hideGameOvergraphics()
 {
-    if(gameOverPix){
-            // removeItem(gameOverPix);
-            delete gameOverPix;
-            gameOverPix = nullptr;
+    if(gameOverPix)
+    {
+//        removeItem(gameOverPix);
+        delete gameOverPix;
+        gameOverPix = nullptr;
     }
-    if(scoreTextItem){
+    if(scoreTextItem)
+    {
 //        removeItem(scoreTextItem);
         delete scoreTextItem;
         scoreTextItem = nullptr;
@@ -176,10 +187,12 @@ void Scene::hideGameOverGraphics()
 
 void Scene::cleanPillars()
 {
-    QList<QGraphicsItem *> sceneItems = items();
-    foreach(QGraphicsItem *item, sceneItems){
+    QList<QGraphicsItem *> sceneItem = items();
+    foreach(QGraphicsItem *item, sceneItem)
+    {
         PillarItem * pillar = dynamic_cast<PillarItem *>(item);
-        if(pillar){
+        if(pillar)
+        {
             removeItem(pillar);
             delete pillar;
         }

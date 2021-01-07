@@ -17,6 +17,7 @@ SOURCES += \
 
 HEADERS += \
     birditem.h \
+    common.h \
     mainwindow.h \
     pillaritem.h \
     scene.h
