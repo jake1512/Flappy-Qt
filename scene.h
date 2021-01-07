@@ -4,7 +4,8 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include "pillaritem.h"
-#include "birditem.h"
+#include <birditem.h>
+
 class Scene : public QGraphicsScene
 {
     Q_OBJECT
@@ -15,46 +16,43 @@ public:
 
     void startGame();
 
+    bool getGameOn() const;
+    void setGameOn(bool value);
     void updateScore();
     void incrementScore();
 
-    void gameOver(int score);
-
-    bool isGameStarted();
-    bool isGameFinished();
-    bool isGameActuallyStarted();
-
-    void prepareNewRound();
+    void setScore(int value);
 
 signals:
-
 public slots:
 
+    // QGraphicsScene interface
 protected:
+    void keyPressEvent(QKeyEvent *event);
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event);
 private:
     void showGameOverGraphics();
+    void hideGameOvergraphics();
     void cleanPillars();
     void setUpPillarTime();
-    void freeBirdAndPillarsInPlace();
-
-    bool gameFinished, gameStarted;
-    bool gameActuallyStarted;
+    void freezeBirdAndPillarsInPlace();
 
     QTimer * pillarTimer;
-    QTimer * groundTimer;
+
     BirdItem * bird;
 
-    int score, scoreBefore;
+    bool gameOn;
+
+    int score;
     int bestScore;
 
-
+    QGraphicsPixmapItem * gameOverPix;
     QGraphicsTextItem * scoreTextItem;
     QGraphicsTextItem * scorePresentPlay;
 
-    QGraphicsPixmapItem *item_pixmap_scoreBoard;
-
 };
+
+
 
 #endif // SCENE_H

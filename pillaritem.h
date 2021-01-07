@@ -15,8 +15,6 @@ public:
 
     qreal x() const;
 
-    void scorebat();
-
     void freezeInPlace();
 
 public slots:
@@ -27,7 +25,7 @@ signals:
 
 private:
 
-    bool collideWithBird();
+    bool collidesWithBird();
 
     QGraphicsPixmapItem * topPillar;
     QGraphicsPixmapItem * bottomPillar;

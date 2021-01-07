@@ -105,36 +105,6 @@
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\0.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\1.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\2.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\3.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\4.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\5.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\6.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\7.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\8.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\9.png">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="images\background_day.png">
       <Filter>Resource Files</Filter>
     </None>
@@ -168,26 +138,5 @@
     <QtRcc Include="resource.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-    <None Include="images\scoreBoard.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\scoreBoard_bronze.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\scoreBoard_gold.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\scoreBoard_platinum.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\scoreBoard_silver.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\soundDisabled.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="images\soundEnabled.png">
-      <Filter>Resource Files</Filter>
-    </None>
   </ItemGroup>
 </Project>

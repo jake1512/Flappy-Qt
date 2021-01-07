@@ -27,4 +27,4 @@
 #define IMG_BIGNUMBER_ZERO PREFIX_IMG "0.png"
 #define IMG_BIGNUMBER_GENERIC PREFIX_IMG "%1.png"
 
-#endif
+#endif // COMMON_H

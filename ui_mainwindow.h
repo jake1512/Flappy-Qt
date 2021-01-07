@@ -27,7 +27,7 @@ public:
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QGraphicsView *graphicsView;
-    QPushButton *startGame;
+    QPushButton *startGameBotton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -35,7 +35,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(600, 718);
+        MainWindow->resize(600, 717);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         verticalLayout = new QVBoxLayout(centralwidget);
@@ -45,15 +45,15 @@ public:
 
         verticalLayout->addWidget(graphicsView);
 
-        startGame = new QPushButton(centralwidget);
-        startGame->setObjectName(QString::fromUtf8("startGame"));
+        startGameBotton = new QPushButton(centralwidget);
+        startGameBotton->setObjectName(QString::fromUtf8("startGameBotton"));
 
-        verticalLayout->addWidget(startGame);
+        verticalLayout->addWidget(startGameBotton);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 600, 21));
+        menubar->setGeometry(QRect(0, 0, 600, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -67,7 +67,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        startGame->setText(QCoreApplication::translate("MainWindow", "Start Game", nullptr));
+        startGameBotton->setText(QCoreApplication::translate("MainWindow", "Start Game", nullptr));
     } // retranslateUi
 
 };

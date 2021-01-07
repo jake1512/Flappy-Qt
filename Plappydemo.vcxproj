@@ -202,7 +202,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="birditem.cpp" />
-    <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="pillaritem.cpp" />
@@ -212,7 +211,6 @@
     <QtMoc Include="birditem.h">
     </QtMoc>
     <ClInclude Include="common.h" />
-    <ClInclude Include="game.h" />
     <QtMoc Include="mainwindow.h">
     </QtMoc>
     <QtMoc Include="pillaritem.h">
@@ -243,16 +241,6 @@
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\0.png" />
-    <None Include="images\1.png" />
-    <None Include="images\2.png" />
-    <None Include="images\3.png" />
-    <None Include="images\4.png" />
-    <None Include="images\5.png" />
-    <None Include="images\6.png" />
-    <None Include="images\7.png" />
-    <None Include="images\8.png" />
-    <None Include="images\9.png" />
     <None Include="images\background_day.png" />
     <None Include="images\bird_blue_down.png" />
     <None Include="images\bird_blue_middle.png" />
@@ -265,13 +253,6 @@
     <None Include="images\pipe_up.png" />
     <QtRcc Include="resource.qrc">
     </QtRcc>
-    <None Include="images\scoreBoard.png" />
-    <None Include="images\scoreBoard_bronze.png" />
-    <None Include="images\scoreBoard_gold.png" />
-    <None Include="images\scoreBoard_platinum.png" />
-    <None Include="images\scoreBoard_silver.png" />
-    <None Include="images\soundDisabled.png" />
-    <None Include="images\soundEnabled.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

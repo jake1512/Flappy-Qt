@@ -1,7 +1,7 @@
 #include "birditem.h"
-#include "common.h"
 #include <QTimer>
 #include <QGraphicsScene>
+#include "common.h"
 
 BirdItem::BirdItem(QPixmap pixmap) :
     wingPositon(WingPositon::Up),
@@ -27,6 +27,7 @@ BirdItem::BirdItem(QPixmap pixmap) :
 //    yAnimation->start();
 
     rotationAnimation = new QPropertyAnimation(this, "rotation", this);
+//    rotateTo(90,1200,QEasingCurve::InQuad);
 }
 
 qreal BirdItem::rotation() const
@@ -39,7 +40,7 @@ qreal BirdItem::y() const
     return m_y;
 }
 
-void BirdItem::shootUp()
+void BirdItem::shootUP()
 {
     yAnimation->stop();
     rotationAnimation->stop();
@@ -50,24 +51,25 @@ void BirdItem::shootUp()
     yAnimation->setEndValue(curPosY - scene()->sceneRect().height()/8);
     yAnimation->setEasingCurve(QEasingCurve::OutQuad);
     yAnimation->setDuration(200);
-    connect(yAnimation, &QPropertyAnimation::finished, [=](){
-        fallToGround();
+
+    connect(yAnimation, &QPropertyAnimation::finished,[=](){
+       fallToGroundIfNecessary();
     });
+
     yAnimation->start();
+
     rotateTo(-20, 200, QEasingCurve::OutCubic);
 }
 
 void BirdItem::startFlying()
 {
     yAnimation->start();
-    rotateTo(90,500,QEasingCurve::InQuad);
+    rotateTo(90,1200,QEasingCurve::InQuad);
 }
 
 void BirdItem::freezeInPlace()
 {
-    yAnimation->stop();
     rotationAnimation->stop();
-
 }
 
 void BirdItem::setRotation(qreal rotation)
@@ -99,19 +101,20 @@ void BirdItem::rotateTo(const qreal &end, const int &duration, const QEasingCurv
     rotationAnimation->start();
 }
 
-void BirdItem::fallToGround()
+void BirdItem::fallToGroundIfNecessary()
 {
-    if(y() < groundPosition){
+    if(y() < groundPosition)
+    {
         rotationAnimation->stop();
-//        yAnimation -> stop();
+//        yAnimation->stop();
 
         yAnimation->setStartValue(y());
-        yAnimation->setEndValue(groundPosition);
         yAnimation->setEasingCurve(QEasingCurve::InQuad);
+        yAnimation->setEndValue(groundPosition);
         yAnimation->setDuration(800);
         yAnimation->start();
 
-        rotateTo(90,800,QEasingCurve::InCubic);
+        rotateTo(90, 800, QEasingCurve::InCubic);
     }
 }
 
