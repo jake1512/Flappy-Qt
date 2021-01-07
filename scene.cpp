@@ -153,7 +153,7 @@ void Scene::showGameOverGraphics()
     QString htmlString = "<p> Score : " + QString::number(score) + "</p>"
             + "<p> Best Score : " + QString::number(bestScore) + "</p>";
 
-    QFont mFont("Calibri", 30, QFont::Normal);
+    QFont mFont("Consolas", 30, QFont::Bold);
 
     scoreTextItem->setHtml(htmlString);
     scoreTextItem->setFont(mFont);
