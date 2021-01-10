@@ -1,0 +1,12 @@
+debug/birditem.o
+debug/grounditem.o
+debug/main.o
+debug/mainwindow.o
+debug/pillaritem.o
+debug/scene.o
+debug/qrc_resource.o
+debug/moc_birditem.o
+debug/moc_grounditem.o
+debug/moc_mainwindow.o
+debug/moc_pillaritem.o
+debug/moc_scene.o

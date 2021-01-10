@@ -1,0 +1,12 @@
+release/birditem.o
+release/grounditem.o
+release/main.o
+release/mainwindow.o
+release/pillaritem.o
+release/scene.o
+release/qrc_resource.o
+release/moc_birditem.o
+release/moc_grounditem.o
+release/moc_mainwindow.o
+release/moc_pillaritem.o
+release/moc_scene.o
