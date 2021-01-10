@@ -1,4 +1,5 @@
-QT       += core gui
+QT       += core gui \
+        multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,6 +11,7 @@ CONFIG += c++11
 
 SOURCES += \
     birditem.cpp \
+    grounditem.cpp \
     main.cpp \
     mainwindow.cpp \
     pillaritem.cpp \
@@ -18,6 +20,7 @@ SOURCES += \
 HEADERS += \
     birditem.h \
     common.h \
+    grounditem.h \
     mainwindow.h \
     pillaritem.h \
     scene.h

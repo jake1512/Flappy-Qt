@@ -50,6 +50,9 @@
     <ClCompile Include="birditem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="grounditem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -70,6 +73,9 @@
     <ClInclude Include="common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <QtMoc Include="grounditem.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <QtMoc Include="mainwindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -81,6 +87,8 @@
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
+    
+    
     
     
     
@@ -117,6 +125,9 @@
     <None Include="images\bird_blue_up.png">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="sounds\die.wav">
+      <Filter>Resource Files</Filter>
+    </None>
     <None Include="images\gameInfo.png">
       <Filter>Resource Files</Filter>
     </None>
@@ -124,6 +135,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="images\ground_segment.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="sounds\hit.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="images\icon.ico">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="images\logo.png">
@@ -135,8 +152,29 @@
     <None Include="images\pipe_up.png">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="sounds\point.wav">
+      <Filter>Resource Files</Filter>
+    </None>
     <QtRcc Include="resource.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+    <None Include="images\scoreBoard.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="images\scoreBoard_bronze.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="images\scoreBoard_gold.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="images\scoreBoard_platinum.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="images\scoreBoard_silver.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="sounds\wing.wav">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #include "birditem.h"
+#include "common.h"
 #include <QTimer>
 #include <QGraphicsScene>
-#include "common.h"
 
 BirdItem::BirdItem(QPixmap pixmap) :
     wingPositon(WingPositon::Up),
@@ -16,7 +16,7 @@ BirdItem::BirdItem(QPixmap pixmap) :
 
     birdWingsTimer->start(80);
 
-    groundPosition = scenePos().y() + 290;
+    groundPosition = scenePos().y() + 290 - 25;
 
     yAnimation = new QPropertyAnimation(this,"y",this);
     yAnimation->setStartValue(scenePos().y());
@@ -69,6 +69,7 @@ void BirdItem::startFlying()
 
 void BirdItem::freezeInPlace()
 {
+//    yAnimation->stop();
     rotationAnimation->stop();
 }
 
