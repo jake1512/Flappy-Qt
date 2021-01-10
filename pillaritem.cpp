@@ -1,21 +1,24 @@
 #include "pillaritem.h"
+#include "common.h"
 #include <QRandomGenerator>
 #include <birditem.h>
 #include <QDebug>
 #include <QGraphicsScene>
 #include <scene.h>
-#include "common.h"
 
 PillarItem::PillarItem() :
     topPillar(new QGraphicsPixmapItem(QPixmap(IMG_PIPE_UP))),
     bottomPillar(new QGraphicsPixmapItem(QPixmap(IMG_PIPE_DOWN))),
+//    ground(new QGraphicsPixmapItem(QPixmap(":/new/prefix1/images/ground_segment.png"))),
     pastBird(false)
 {
-    bottomPillar->setPos(QPointF(0,0) - QPointF(bottomPillar->boundingRect().width()/2, topPillar->boundingRect().height() + 60));
-    topPillar->setPos(QPointF(0,0) + QPointF(-topPillar->boundingRect().width()/2, 60));
+    bottomPillar->setPos(QPointF(0,0) - QPointF(bottomPillar->boundingRect().width()/2, topPillar->boundingRect().height() + 40));
+    topPillar->setPos(QPointF(0,30) + QPointF(-topPillar->boundingRect().width()/2, 40));
+//    ground->setPos(QPointF(0, 0) -QPointF(ground->boundingRect().width()/2, -290));
 
     addToGroup(topPillar);
     addToGroup(bottomPillar);
+//    addToGroup(ground);
 
     yPos = QRandomGenerator::global()->bounded(150);
     int xRandomizer = QRandomGenerator::global()->bounded(200);
@@ -29,7 +32,7 @@ PillarItem::PillarItem() :
     xAnimation->setDuration(4000);
 
     connect(xAnimation, &QPropertyAnimation::finished,[=](){
-        qDebug() << "Animation finished";
+//        qDebug() << "Animation finished";
         scene()->removeItem(this);
         delete this;
     });
@@ -38,12 +41,13 @@ PillarItem::PillarItem() :
 
     addToGroup(topPillar);
     addToGroup(bottomPillar);
+//    addToGroup(ground);
 
 }
 
 PillarItem::~PillarItem()
 {
-    qDebug() << "Deleting Pillar";
+//    qDebug() << "Deleting Pillar";
     delete topPillar;
     delete bottomPillar;
 }
@@ -60,7 +64,7 @@ void PillarItem::freezeInPlace()
 
 void PillarItem::setX(qreal x)
 {
-    qDebug() << "Pillar position : " << x;
+//    qDebug() << "Pillar position : " << x;
     m_x = x;
 
     if(x < 0 && !pastBird)

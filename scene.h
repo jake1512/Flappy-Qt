@@ -4,7 +4,9 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include "pillaritem.h"
+#include <grounditem.h>
 #include <birditem.h>
+#include <QGraphicsDropShadowEffect>
 
 class Scene : public QGraphicsScene
 {
@@ -13,7 +15,7 @@ public:
     explicit Scene(QObject *parent = nullptr);
 
     void addBird();
-
+    void groundRun();
     void startGame();
 
     bool getGameOn() const;
@@ -35,10 +37,13 @@ private:
     void showGameOverGraphics();
     void hideGameOvergraphics();
     void cleanPillars();
+    void cleanGround();
     void setUpPillarTime();
     void freezeBirdAndPillarsInPlace();
+    void setUpGround();
 
     QTimer * pillarTimer;
+    QTimer * groundTimer;
 
     BirdItem * bird;
 
@@ -48,8 +53,11 @@ private:
     int bestScore;
 
     QGraphicsPixmapItem * gameOverPix;
+    QGraphicsPixmapItem * gameOverScore;
     QGraphicsTextItem * scoreTextItem;
+
     QGraphicsTextItem * scorePresentPlay;
+    QGraphicsDropShadowEffect *effect;
 
 };
 

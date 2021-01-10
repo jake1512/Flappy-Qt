@@ -10,5 +10,15 @@
         <file>images/gameInfo.png</file>
         <file>images/logo.png</file>
         <file>images/ground_segment.png</file>
+        <file>images/icon.ico</file>
+        <file>images/scoreBoard_bronze.png</file>
+        <file>images/scoreBoard_gold.png</file>
+        <file>images/scoreBoard_platinum.png</file>
+        <file>images/scoreBoard_silver.png</file>
+        <file>images/scoreBoard.png</file>
+        <file>sounds/die.wav</file>
+        <file>sounds/hit.wav</file>
+        <file>sounds/point.wav</file>
+        <file>sounds/wing.wav</file>
     </qresource>
 </RCC>

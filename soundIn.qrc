@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/soundA">
+        <file>die.wav</file>
+        <file>point.wav</file>
+        <file>wing.wav</file>
+    </qresource>
+</RCC>

@@ -16,9 +16,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    QGraphicsPixmapItem * pixItem;
     QGraphicsPixmapItem * logo;
     QGraphicsPixmapItem * tap;
-    QGraphicsPixmapItem * ground;
 
 private slots:
     void on_startGameBotton_clicked();

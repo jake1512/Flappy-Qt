@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/soundIn"/>
+    <qresource prefix="/">
+        <file>sound/die.wav</file>
+        <file>sound/hit.wav</file>
+        <file>sound/point.wav</file>
+        <file>sound/wing.wav</file>
+    </qresource>
+</RCC>

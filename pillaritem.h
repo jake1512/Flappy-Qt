@@ -30,6 +30,7 @@ private:
     QGraphicsPixmapItem * topPillar;
     QGraphicsPixmapItem * bottomPillar;
     QPropertyAnimation * xAnimation;
+//    QGraphicsPixmapItem * ground;
     int yPos;
 
     qreal m_x;
