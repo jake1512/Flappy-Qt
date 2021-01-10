@@ -222,7 +222,7 @@ void Scene::showGameOverGraphics()
     }  else if( score >= 30 && score < 40)
     {
         gameOverScore = new QGraphicsPixmapItem(QPixmap(IMG_SCOREBOARD_GOLD));
-    } else if( score >= 50)
+    } else if( score >= 40)
     {
         gameOverScore = new QGraphicsPixmapItem(QPixmap(IMG_SCOREBOARD_PLATINUM));
     }

@@ -177,4 +177,7 @@
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\Work\Programming Stuffs\C_C++\Finals\FlappyBird\FlappyBird\FlappyBird_resource.rc" />
+  </ItemGroup>
 </Project>
